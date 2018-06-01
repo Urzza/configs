@@ -121,3 +121,7 @@
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq slime-contribs '(slime-fancy))
+
+(desktop-save-mode 1)
+(ac-config-default)
+(add-hook 'python-mode-hook 'auto-complete-mode)
