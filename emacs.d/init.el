@@ -125,3 +125,14 @@
 (desktop-save-mode 1)
 (ac-config-default)
 (add-hook 'python-mode-hook 'auto-complete-mode)
+
+(add-to-list 'default-frame-alist
+             '(font . "DejaVu Sans Mono-10"))
+
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(elpy-enable)
