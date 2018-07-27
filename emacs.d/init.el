@@ -70,13 +70,28 @@
 (setq word-wrap          t)
 (global-visual-line-mode t)
 
-;; IDO plugin
-(require 'ido)
-(ido-mode                      t)
-(icomplete-mode                t)
-(ido-everywhere                t)
-(setq ido-vitrual-buffers      t)
-(setq ido-enable-flex-matching t)
+;; ;; IDO plugin
+;; (require 'ido)
+;; (ido-mode                      t)
+;; (icomplete-mode                t)
+;; (ido-everywhere                t)
+;; (setq ido-vitrual-buffers      t)
+;; (setq ido-enable-flex-matching t)
+(require 'ivy)
+(ivy-mode 1)
+;; (advice-add 'swiper :after #'recenter)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+
+
 
 ;; Buffer Selection and ibuffer settings
 (require 'bs)
@@ -118,7 +133,7 @@
 (setq query-replace-highlight t)
 
 ;; Set your lisp system and, optionally, some contribs
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq slime-contribs '(slime-fancy))
 
@@ -127,7 +142,7 @@
 (add-hook 'python-mode-hook 'auto-complete-mode)
 
 (add-to-list 'default-frame-alist
-             '(font . "DejaVu Sans Mono-10"))
+             '(font . "DejaVu Sans Mono 10"))
 
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
